@@ -6,5 +6,12 @@ name = "pypi"
 [packages]
 django = "==2.0"
 requests = "*"
+airtable-python-wrapper = "*"
+certifi = "*"
+chardet = "*"
+idna = "*"
+pytz = "*"
+six = "*"
+urllib3 = "*"
 
 [dev-packages]
