@@ -1,6 +1,7 @@
 #!/bin/bash
 
-# Converted into unix newline endings by dos2unix linux command.
+# Converted into unix newline endings by dos2unix linux command. This script is used because normal users have no
+# access to hosting on external ports on the VM. This way you can host a page in the (W)LAN.
 
 # This is the default pipenv environment within the project:
 source /home/mario/devenvs/python/cp-barebone-movie-app-final/bin/activate

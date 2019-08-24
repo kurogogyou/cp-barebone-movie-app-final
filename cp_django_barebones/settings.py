@@ -34,6 +34,7 @@ ALLOWED_HOSTS = [
 # Application definition
 
 INSTALLED_APPS = [
+    'movies.apps.MoviesConfig',     #This is what adds the Movies app into the django framework. 
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',

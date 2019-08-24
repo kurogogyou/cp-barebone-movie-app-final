@@ -13,5 +13,6 @@ idna = "*"
 pytz = "*"
 six = "*"
 urllib3 = "*"
+airtable = "*"
 
 [dev-packages]
