@@ -1,12 +1,12 @@
 from django.shortcuts import render
 from django.contrib import messages
-from airtable.airtable import Airtable
+from airtable import Airtable
 import os
 
 # Create your views here.
 
 # Airtable database handler
-AT = Airtable(os.environ.get('AIRTABLE_MOVIESTABLE_BASE_ID'), 'Movies') #api_key=os.environ.get('AIRTABLE_API_KEY')
+AT = Airtable(os.environ.get('AIRTABLE_MOVIESTABLE_BASE_ID'), 'Movies', api_key=os.environ.get('AIRTABLE_API_KEY'))
 
 # This runs when soembody comes to my website
 def home_page(request):
