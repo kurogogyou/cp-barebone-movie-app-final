@@ -4,9 +4,7 @@
 # This script is used because normal users have no
 # access to hosting on external ports on the VM. This way you can host a page in the (W)LAN.
 
-# If no powers, re-exec the script with powers
-#[ "$(whoami)" != "root" ] && exec sudo -- "$0" "$@"
-#(( EUID != 0 )) && exec sudo -- "$0" "$@"
+# NOTE: find a way to ask for sudo inside the script.
 
 # This is the project folder
 cd /home/mario/devenvs/python/cp-barebone-movie-app-final/

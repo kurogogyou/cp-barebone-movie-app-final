@@ -13,7 +13,12 @@ def home_page(request):
 	#print(os.environ.get('AIRTABLE_API_KEY'))
 	#print(os.environ.get('AIRTABLE_MOVIESTABLE_BASE_ID'))
 	#print(str(request.GET.get('query', '')))
+
+	# Searches based on the text query. Case insensitive (converts to lowercase).
 	user_query = str(request.GET.get('query', ''))
-	return render(request, 'movies/movies_stuff.html')
+	search_result = AT.get_all(formula="FIND('" + user_query.lower() + "', LOWER({NAME}))")
+	stuff_for_frontend = {'search_result': search_result}
+
+	return render(request, 'movies/movies_stuff.html', stuff_for_frontend)
 
 
