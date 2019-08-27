@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.contrib import messages
 from airtable import Airtable
 import os
@@ -21,4 +21,6 @@ def home_page(request):
 
 	return render(request, 'movies/movies_stuff.html', stuff_for_frontend)
 
-
+def create(request):
+	print("gotcha!")
+	return redirect('/')
