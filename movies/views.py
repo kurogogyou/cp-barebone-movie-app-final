@@ -22,5 +22,14 @@ def home_page(request):
 	return render(request, 'movies/movies_stuff.html', stuff_for_frontend)
 
 def create(request):
-	print("gotcha!")
+	if request.method == 'POST':
+		data = {
+			'Name': request.POST.get('name'),
+			'Pictures': [{'url': request.POST.get('url')}],
+			'Rating': int(request.POST.get('rating')),
+			'Notes': request.POST.get('notes')
+		}
+
+		AT.insert(data)
+	#print("gotcha!")
 	return redirect('/')
