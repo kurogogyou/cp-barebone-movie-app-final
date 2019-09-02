@@ -10,9 +10,6 @@ AT = Airtable(os.environ.get('AIRTABLE_MOVIESTABLE_BASE_ID'), 'Movies', api_key=
 
 # This runs when soembody comes to my website
 def home_page(request):
-	#print(os.environ.get('AIRTABLE_API_KEY'))
-	#print(os.environ.get('AIRTABLE_MOVIESTABLE_BASE_ID'))
-	#print(str(request.GET.get('query', '')))
 
 	# Searches based on the text query. Case insensitive (converts to lowercase).
 	user_query = str(request.GET.get('query', ''))
@@ -31,5 +28,4 @@ def create(request):
 		}
 
 		AT.insert(data)
-	#print("gotcha!")
 	return redirect('/')
