@@ -29,3 +29,18 @@ def create(request):
 
 		AT.insert(data)
 	return redirect('/')
+
+def edit(request, movie_id):
+	if request.method == 'POST':
+		data = {
+			'Name' : request.POST.get('name'),
+			'Pictures' : [{'url' : request.POST.get('url')}],
+			'Rating' : int(request.POST.get('rating')),
+			#'Notes' : request.POST.get('notes')
+		}
+		#Only update the notes when the string is not empty. Prevents automatically removing notes.
+		if request.POST.get('notes') != '':
+			data.update({'Notes' : request.POST.get('notes')})
+
+		AT.update(movie_id, data)
+	return redirect('/')
