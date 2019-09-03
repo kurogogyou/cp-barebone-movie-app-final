@@ -27,7 +27,10 @@ def create(request):
 			'Notes': request.POST.get('notes')
 		}
 
-		AT.insert(data)
+		response = AT.insert(data)
+		#response['fields'] is a dictionary too.
+		messages.success(request, 'New movie added: {}'.format(response['fields'].get('Name')))
+
 	return redirect('/')
 
 def edit(request, movie_id):
@@ -42,9 +45,13 @@ def edit(request, movie_id):
 		if request.POST.get('notes') != '':
 			data.update({'Notes' : request.POST.get('notes')})
 
-		AT.update(movie_id, data)
+		response = AT.update(movie_id, data)
+		messages.success(request, 'Edited movie: {}'.format(response['fields'].get('Name')))
 	return redirect('/')
 
 def delete(request, movie_id):
+	#Need to get the name of the movie before I delete it.
+	name = AT.get(movie_id)['fields'].get('Name')
 	AT.delete(movie_id)
+	messages.warning(request, 'Deleted movie: {}'.format(name))
 	return redirect('/')
